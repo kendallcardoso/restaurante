@@ -1,0 +1,5 @@
+vt/
+__pycache_/
+*.pyc
+.env
+db.saqlite3

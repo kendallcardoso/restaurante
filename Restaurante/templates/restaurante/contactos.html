@@ -1,0 +1,57 @@
+{% extends 'restaurante/base.html' %}
+
+{% block title %}Contactos | Restaurante{% endblock %}
+
+{% block hero_class %}hero-pequeno{% endblock %}
+
+{% block hero %}
+<h1>Contactos</h1>
+<p>Estamos à sua espera.</p>
+{% endblock %}
+
+{% block content %}
+
+<section class="contactos-cards">
+
+    <article class="info-card">
+        <h3>Cazenga</h3>
+        <p>Rua dos Comandos, nº 10<br>Luanda, Angola</p>
+    </article>
+
+    <article class="info-card">
+        <h3>Telefone</h3>
+        <p><a href="tel:+244932021316">+244 932 021 316</a></p>
+    </article>
+
+    <article class="info-card">
+        <h3>WhatsApp</h3>
+        <p>
+            <a href="https://wa.me/244932021316?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva." target="_blank" rel="noopener">
+                Enviar mensagem
+            </a>
+        </p>
+    </article>
+
+    <article class="info-card">
+        <h3>Email</h3>
+        <p><a href="mailto:kendallcardoso55@gmail.com">restaurante.com</a></p>
+    </article>
+
+    <article class="info-card">
+        <h3>Horário</h3>
+        <p>Seg - Sex: 12h - 23h<br>Sáb - Dom: 12h - 00h</p>
+    </article>
+
+</section>
+
+<section class="mapa">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.3583734986037!2d13.282237574128086!3d-8.84618749120799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f1bcb1a2811b%3A0x8b7202be94c852c1!2sRestaurante%20Prato%20Cheio!5e0!3m2!1sen!2sao!4v1792825320865!5m2!1sen!2sao" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localização do restaurante">
+    </iframe>
+</section>
+
+{% endblock %}
