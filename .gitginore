@@ -3,3 +3,4 @@ __pycache_/
 *.pyc
 .env
 db.saqlite3
+staticfiles/
