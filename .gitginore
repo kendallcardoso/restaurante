@@ -1,6 +1,6 @@
 vt/
-__pycache_/
+__pycache__/
 *.pyc
 .env
-db.saqlite3
+db.sqlite3
 staticfiles/
