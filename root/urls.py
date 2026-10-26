@@ -6,8 +6,7 @@ from django.conf.urls.static import static
 from users import urls
 from Restaurante import urls
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('login', include("users.urls")),
+    path('admin/', include("users.urls")),
     path("", include("Restaurante.urls"))
 ]
 if settings.DEBUG:

@@ -1,0 +1,194 @@
+/* ===== Tela de login: Prato Cheio ===== */
+
+:root {
+    --bg-dark: #1a1008;
+    --bg-mid: #3a2210;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #d1d5db;
+    --accent: #d97706;
+    --accent-dark: #b45309;
+    --error-bg: #fef2f2;
+    --error-text: #b91c1c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-mid) 100%);
+    min-height: 100vh;
+}
+
+/* Centra o cartão no ecrã */
+.login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    background: var(--card);
+    border-radius: 16px;
+    padding: 40px 32px 32px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* Cabeçalho */
+.login-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-brand {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    letter-spacing: 0.5px;
+}
+
+.login-subtitle {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* Mensagens de erro (Django messages) */
+.login-messages {
+    list-style: none;
+    background: var(--error-bg);
+    color: var(--error-text);
+    border-left: 4px solid var(--error-text);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+/* Formulário */
+.field {
+    margin-bottom: 18px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.field input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem; /* 16px evita zoom automático no telemóvel */
+    font-family: inherit;
+    color: var(--text);
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input::placeholder {
+    color: #9ca3af;
+}
+
+.field input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2);
+}
+
+/* Botão */
+.btn-login {
+    width: 100%;
+    margin-top: 6px;
+    padding: 13px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-login:hover {
+    background: var(--accent-dark);
+}
+
+.btn-login:active {
+    transform: translateY(1px);
+}
+
+.btn-login:focus-visible {
+    outline: 3px solid rgba(217, 119, 6, 0.4);
+    outline-offset: 2px;
+}
+
+/* Rodapé do cartão */
+.login-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.login-footer a {
+    color: var(--accent-dark);
+    text-decoration: none;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Ecrãs pequenos */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 32px 22px 26px;
+        border-radius: 14px;
+    }
+}
+/* Mensagem por baixo do botão (erro por defeito) */
+.sms {
+    margin-top: 16px;
+    padding: 10px 14px;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--error-text);
+    background: var(--error-bg);
+    border-left: 4px solid var(--error-text);
+    border-radius: 8px;
+    animation: sms-entrada 0.25s ease-out;
+}
+
+/* Variante de sucesso (opcional) */
+.sms.sucesso {
+    color: #166534;
+    background: #f0fdf4;
+    border-left-color: #16a34a;
+}
+
+@keyframes sms-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
