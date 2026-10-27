@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block titulo %}Painel{% endblock %} | Prato Cheio</title>
+
+    <link rel="stylesheet" href="{% static 'restaurante/css/admin.css' %}">
+    {% block extra_css %}
+    {% endblock %}
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                Restaurante
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Menu principal">
+
+                {% with rota=request.resolver_match.url_name %}
+
+                <a href="{% url 'adminpage' %}"
+                   class="{% if rota == 'adminpage' %}active{% endif %}">
+                    Painel
+                </a>
+
+                <a href="{% url 'menus' %}"
+                   class="{% if rota == 'pratos' %}active{% endif %}">
+                    Menus
+                </a>
+
+            
+
+
+                <a href="{% url 'users' %}"
+                   class="{% if rota == 'utilizadores' %}active{% endif %}">
+                    Utilizadores
+                </a>
+
+                {% endwith %}
+
+            </nav>
+
+        </aside>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <div class="content">
+
+            <!-- BARRA SUPERIOR -->
+            <header class="topbar">
+
+                <div class="topbar-user">
+
+                    <!-- FOTO DE PERFIL -->
+                    <div class="avatar">
+
+                        {% if request.user.is_authenticated %}
+
+                            {% if request.user.fotodeperfil %}
+
+                                <img
+                                    src="{{ request.user.fotodeperfil.url }}"
+                                    alt="Foto de {{ request.user.get_username }}"
+                                    class="foto-perfil"
+                                >
+
+                            {% else %}
+
+                                <span class="avatar-letra">
+                                    {{ request.user.get_username|slice:":1"|upper }}
+                                </span>
+
+                            {% endif %}
+
+                        {% else %}
+
+                            <span class="avatar-letra">?</span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- INFORMAÇÕES DO UTILIZADOR -->
+                    <div class="user-info">
+
+                        <span class="topbar-name">
+
+                            {% if request.user.is_authenticated %}
+
+                                {{ request.user.first_name|default:request.user.get_username }}
+
+                            {% else %}
+
+                                Visitante
+
+                            {% endif %}
+
+                        </span>
+
+
+                        <small class="user-role">
+
+                            {% if request.user.is_superuser %}
+
+                                Administrador
+
+                            {% elif request.user.is_staff %}
+
+                                Funcionário
+
+                            {% elif request.user.is_authenticated %}
+
+                                Utilizador
+
+                            {% else %}
+
+                                Não autenticado
+
+                            {% endif %}
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTÃO SAIR -->
+                <form
+                    method="post"
+                    action="{% url 'logout' %}"
+                    class="logout-form"
+                >
+
+                    {% csrf_token %}
+
+                    <button type="submit" class="btn-logout">
+                        Sair
+                    </button>
+
+                </form>
+
+            </header>
+
+
+            <!-- CONTEÚDO DAS PÁGINAS -->
+            <main class="main">
+
+                <!-- MENSAGENS DO DJANGO -->
+                {% if messages %}
+
+                     <p class="aviso {{ message.tags }}" role="alert">
+                            {{ message }}
+                        </p>
+
+
+                {% endif %}
+
+
+                <!-- CONTEÚDO DINÂMICO -->
+                {% block conteudo %}
+
+                {% endblock %}
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    {% block scripts %}
+
+        <script
+            src="{% static 'restaurante/js/admin.js' %}"
+            type="module">
+        </script>
+
+    {% endblock %}
+
+</body>
+</html>

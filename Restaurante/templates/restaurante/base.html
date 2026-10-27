@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Restaurante{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'restaurante/css/base.css' %}">
+    {% block extracss %}{% endblock %}
 </head>
 <a href="https://wa.me/244932021316?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva."
    class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
@@ -20,7 +21,7 @@
     <section class="hero">
 
         <header class="header">
-            <a href="/" class="logo">Prato Cheio</a>
+            <a href="/" class="logo">Restaurante</a>
 
             <!-- Checkbox usado para abrir/fechar o menu no telemóvel (sem JavaScript) -->
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -39,6 +40,7 @@
                             <li><a href="{% url 'pratosPrincipais' %}">Pratos Principais</a></li>
                             <li><a href="{% url 'sobremesas' %}">Sobremesas</a></li>
                             <li><a href="{% url 'bebidas' %}">Bebidas</a></li>
+                            <li><a href="{% url 'fastfood' %}">Fastfood</a></li>
                         </ul>
                     </li>
 
@@ -47,7 +49,6 @@
                         <ul class="submenu">
                             <li><a href="{% url 'sobrenos' %}">Sobre nós</a></li>
                             <li><a href="{% url 'galeria' %}">Galeria</a></li>
-                            <li><a href="{% url 'eventos' %}">Eventos</a></li>
                         </ul>
                     </li>
 
@@ -61,7 +62,7 @@
             {% block hero %}
             <h1>Sabores que contam histórias</h1>
             <p>Venha viver uma experiência única à mesa.</p>
-            <a href="#" class="btn">Reservar mesa</a>
+            <a href="https://wa.me/244932021316?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva." target="_blank" class="btn">Reservar mesa</a>
             {% endblock %}
         </div>
     </section>

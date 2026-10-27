@@ -1,0 +1,68 @@
+
+{% extends 'restaurante/base_painel.html' %}
+
+{% block title %}Painel | Prato Cheio{% endblock %}
+
+{% block conteudo %}
+
+<div class="page-head">
+    <div>
+        <h1>Painel de administração</h1>
+        <p class="page-sub">Resumo do restaurante</p>
+    </div>
+
+
+</div>
+
+<section class="stats" aria-label="Resumo">
+    <article class="stat">
+        <span class="stat-label">Produtos</span>
+        <strong class="stat-value">{{ totalp|default:"0" }}</strong>
+    </article>
+
+
+
+
+    <article class="stat">
+        <span class="stat-label">Utilizadores</span>
+        <strong class="stat-value">{{ totalu|default:"0" }}</strong>
+    </article>
+</section>
+
+<section class="panel">
+    <h2>Cadastrados recentes</h2>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>SubCategoria</th>
+                    <th>Preço</th>
+                    <th>responsavel</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for i in recentes %}
+                <tr>
+                    <td>{{ i.nome }}</td>
+                    <td>{{ i.categoria }}</td>
+                    <td>{{ i.subcategoria }}</td>
+                    <td>{{ i.preco }} Kz</td>
+                    <td>{{ i.responsavel }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3" class="empty">
+                        Ainda não há pratos registados.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+{% endblock %}

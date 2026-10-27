@@ -1,0 +1,168 @@
+
+{% extends 'restaurante/base_painel.html' %}
+{% load static %}
+
+{% block title %}Criar Utilizador | Prato Cheio{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'restaurante/css/criar_utilizador.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="page-head">
+    <div>
+        <h1>Criar utilizador</h1>
+        <p class="page-sub">Registar um novo utilizador no Prato Cheio.</p>
+    </div>
+
+    <a href="{% url 'users' %}" class="btn-voltar">
+        Voltar
+    </a>
+</div>
+
+<section class="form-panel">
+
+    <div class="form-heading">
+        <div class="form-icon">+</div>
+        <div>
+            <h2>Dados do utilizador</h2>
+            <p>Preenche os campos abaixo para registar o utilizador.</p>
+        </div>
+    </div>
+
+    
+    <form method="post"
+          enctype="multipart/form-data"
+          class="user-form"
+          action="">
+
+        {% csrf_token %}
+
+        <div class="profile-upload">
+            <div class="profile-preview">
+                <img
+                    id="foto-preview"
+                    src="{% static 'restaurante/img/avatar-default.png' %}"
+                    alt="Pré-visualização da foto de perfil"
+                >
+            </div>
+
+            <div class="profile-upload-info">
+                <label for="foto_perfil">Foto de perfil</label>
+                <p>Escolhe uma fotografia para identificar o utilizador.</p>
+
+                <input
+                    type="file"
+                    id="foto_perfil"
+                    name="foto_perfil"
+                    accept="image/*"
+                >
+            </div>
+        </div>
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label for="primeiro_nome">Primeiro nome *</label>
+                <input
+                    type="text"
+                    id="primeiro_nome"
+                    name="primeiro_nome"
+                    placeholder="Ex.: João"
+                    value="{{ dados.primeiro_nome|default:'' }}"
+                    autocomplete="given-name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="ultimo_nome">Último nome *</label>
+                <input
+                    type="text"
+                    id="ultimo_nome"
+                    name="ultimo_nome"
+                    placeholder="Ex.: Manuel"
+                    value="{{ dados.ultimo_nome|default:'' }}"
+                    autocomplete="family-name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="exemplo@email.com"
+                    value="{{ dados.email|default:'' }}"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone *</label>
+                <input
+                    type="tel"
+                    id="telefone"
+                    name="telefone"
+                    placeholder="+244 9XX XXX XXX"
+                    value="{{ dados.telefone|default:'' }}"
+                    autocomplete="tel"
+                    required
+                >
+            </div>
+
+        </div>
+
+        <div class="form-divider"></div>
+
+        <div class="form-actions">
+            <a href="{% url 'users' %}" class="btn-cancelar">
+                Cancelar
+            </a>
+
+            <button type="submit" class="btn-guardar">
+                Criar utilizador
+            </button>
+        </div>
+        <br>
+       
+
+    </form>
+     
+    
+    {% if messages %}
+       
+            <div class="alerta-mensagem {{ message.tags }}">
+                {{ messages }}
+            </div>
+        
+    {% endif %}
+
+    {% if erro %}
+        <div class="alerta-mensagem error">
+            {{ erro }}
+        </div>
+    {% endif %}
+
+</section>
+
+<script>
+    const inputFoto = document.getElementById("foto_perfil");
+    const previewFoto = document.getElementById("foto-preview");
+
+    inputFoto.addEventListener("change", function () {
+        const ficheiro = this.files[0];
+
+        if (ficheiro && ficheiro.type.startsWith("image/")) {
+            previewFoto.src = URL.createObjectURL(ficheiro);
+        }
+    });
+</script>
+
+{% endblock %}
+
+

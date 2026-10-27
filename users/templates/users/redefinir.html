@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Redefinir Senha | Sistema</title>
+
+    <link rel="stylesheet" href="{% static 'users/css/redefinir.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="icone">
+                🔐
+            </div>
+
+            <h2>Redefinir Senha</h2>
+
+            <p class="descricao">
+                Por motivos de segurança, deves definir uma nova senha
+                antes de continuar a utilizar o sistema.
+            </p>
+
+            {% if erro %}
+                <div class="mensagem erro">
+                    {{ erro }}
+                </div>
+            {% endif %}
+
+            {% if messages %}
+                    <div class="mensagem {{ message.tags }}">
+                        {{ messages }}
+                    </div>
+            {% endif %}
+
+            <form method="POST" id="formSenha" action="{% url 'redefinir' %}">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+
+                    <label for="senha1">Nova senha</label>
+
+                    <div class="input-group">
+
+                        <input
+                            type="password"
+                            id="senha1"
+                            name="senha1"
+                            placeholder="Digite a nova senha"
+                            minlength="8"
+                            required
+                        >
+
+                        <button type="button" class="mostrar" onclick="mostrarSenha('senha1', this)">
+                            Mostrar
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="senha2">Confirmar nova senha</label>
+
+                    <div class="input-group">
+
+                        <input
+                            type="password"
+                            id="senha2"
+                            name="senha2"
+                            placeholder="Confirme a nova senha"
+                            minlength="8"
+                            required
+                        >
+
+                        <button type="button" class="mostrar" onclick="mostrarSenha('senha2', this)">
+                            Mostrar
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="requisitos">
+
+                    <p>Requisitos da senha:</p>
+
+                    <ul>
+                        <li>Mínimo de 8 caracteres</li>
+                        <li>Utilize letras, números e símbolos</li>
+                        <li>Evite senhas fáceis de adivinhar</li>
+                    </ul>
+
+                </div>
+
+                <p id="erroJS"></p>
+
+                <button type="submit" class="btn-salvar">
+                    Redefinir senha
+                </button>
+
+            </form>
+
+            <div class="rodape">
+                <p>🔒 A tua segurança é a nossa prioridade.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function mostrarSenha(id, botao) {
+
+            const input = document.getElementById(id);
+
+            if (input.type === "password") {
+                input.type = "text";
+                botao.textContent = "Ocultar";
+            } else {
+                input.type = "password";
+                botao.textContent = "Mostrar";
+            }
+
+        }
+
+
+        document.getElementById("formSenha").addEventListener("submit", function(event) {
+
+            const senha1 = document.getElementById("senha1").value;
+            const senha2 = document.getElementById("senha2").value;
+
+            const erro = document.getElementById("erroJS");
+
+            erro.textContent = "";
+
+            if (senha1 !== senha2) {
+
+                event.preventDefault();
+
+                erro.textContent = "As senhas não coincidem!";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+{% extends 'restaurante/base_painel.html' %}
+{% load static %}
+{% block title %}Editar | Prato Cheio{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'restaurante/css/editar.css' %}">
+{% endblock %}
+{% block conteudo %}
+<section class="editar-box">
+    <h2>Editar produto</h2>
+
+    <form id="form" action="{% url 'editarprod' p.id %}" method="POST" enctype="multipart/form-data" class="editar-form">
+        {% csrf_token %}
+
+        <div class="campo">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" value="{{ p.nome }}" required>
+        </div>
+
+        <div class="campo-linha">
+            <div class="campo">
+                <label for="cat">Categoria</label>
+                <select id="cat" name="categoria" required>
+                    <option value="" disabled>Selecione uma opção</option>
+                    <option value="comida" {% if p.categoria == 'comida' %}selected{% endif %}>Comida</option>
+                    <option value="bebida" {% if p.categoria == 'bebida' %}selected{% endif %}>Bebida</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="subcat">Subcategoria</label>
+                <select id="subcat" name="subcategoria" data-atual="{{ p.subcategoria }}" required>
+                    <option value="{{ p.subcategoria }}" selected>{{ p.subcategoria|capfirst }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="campo">
+            <label for="preco">Preço (Kz)</label>
+            <input type="number" id="preco" name="preco" value="{{ p.preco }}" step="0.01" min="0" required>
+        </div>
+
+        <div class="campo">
+            <span class="label-texto">Destaques</span>
+            <label class="switch-linha" for="destaque">
+                <span class="switch">
+                    <input type="checkbox" id="destaque" name="destaque" {% if p.destaque %}checked{% endif %}>
+                    <span class="slider"></span>
+                </span>
+                <span>Adicionar aos destaques</span>
+            </label>
+        </div>
+
+        <div class="campo">
+            <label>Imagem atual</label>
+            {% if p.img %}
+                <img src="{{ p.img.url }}" alt="{{ p.nome }}" class="img-atual">
+            {% else %}
+                <p class="sem-img">Sem imagem</p>
+            {% endif %}
+        </div>
+
+        <div class="campo">
+            <label for="img">Trocar imagem</label>
+            <input type="file" id="img" name="img" accept="image/*">
+        </div>
+
+        <div class="acoes">
+            <a href="javascript:history.back()" class="btn btn-cancelar">Cancelar</a>
+            <button type="submit" class="btn btn-guardar">Guardar alterações</button>
+        </div>
+    </form>
+</section>
+
+<script src="{% static 'restaurante/js/produtos.js' %}"></script>
+{% endblock %}

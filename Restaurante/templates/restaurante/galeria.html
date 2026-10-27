@@ -3,3 +3,48 @@
 {% block title %}Galeria | Restaurante{% endblock %}
 
 {% block hero_class %}hero-pequeno{% endblock %}
+{% block hero %}
+    <h1>Conheça a nossa Galeria</h1>
+    <p>Venha viver uma experiência única...</p>
+    <a href="https://wa.me/244932021316?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva." target="_blank" class="btn">Reservar mesa</a>
+{% endblock %}
+
+{% block content %}
+<section class="galeria-secao">
+  <div class="galeria-container">
+
+    <h2 class="galeria-titulo">O nosso espaço</h2>
+    <p class="galeria-subtitulo">Um ambiente pensado para bons momentos à mesa.</p>
+
+    <div class="galeria-grid">
+      <figure class="galeria-item galeria-grande">
+        <img src="{% static 'restaurante/img/galeria/restaurante.webp' %}" alt="Salão principal">
+        <figcaption>Um salão acolhedor para partilhar boas refeições</figcaption>
+      </figure>
+
+      <figure class="galeria-item">
+        <img src="{% static 'restaurante/img/galeria/pratocheio4.jpg' %}" alt="Mesas do restaurante">
+        <figcaption>Cada detalhe a pensar em si</figcaption>
+      </figure>
+
+      <figure class="galeria-item">
+        <img src="{% static 'restaurante/img/galeria/pratocheio2.jpg' %}" alt="Área externa">
+        <figcaption>Sabor e conforto em cada canto</figcaption>
+      </figure>
+
+      <figure class="galeria-item">
+        <img src="{% static 'restaurante/img/galeria/servicos.jpg' %}" alt="Balcão">
+        <figcaption>Onde cada refeição começa bem</figcaption>
+      </figure>
+
+      <figure class="galeria-item">
+        <img src="{% static 'restaurante/img/galeria/restaurante.webp' %}" alt="Ambiente à noite">
+        <figcaption>Momentos que ficam na memória</figcaption>
+      </figure>
+    </div>
+
+    <p class="galeria-frase">"Aqui, cada mesa tem uma história para contar."</p>
+
+  </div>
+</section>
+{% endblock %}

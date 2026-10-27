@@ -1,0 +1,396 @@
+
+/* ================================
+   PÁGINA DE CRIAR UTILIZADOR
+================================ */
+
+.main {
+    background: #f7f8fc;
+}
+
+/* Cabeçalho da página */
+
+.page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.page-head h1 {
+    margin: 0 0 8px;
+    color: #202533;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+}
+
+.page-sub {
+    margin: 0;
+    color: #858b99;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Cartão principal */
+
+.form-panel {
+    width: 100%;
+    max-width: 1000px;
+    box-sizing: border-box;
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid #eceef3;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(30, 40, 65, 0.045);
+}
+
+/* Cabeçalho do formulário */
+
+.form-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 24px;
+    margin-bottom: 26px;
+    border-bottom: 1px solid #f0f1f5;
+}
+
+.form-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #fff0e5;
+    color: #df7029;
+    font-size: 29px;
+    font-weight: 400;
+}
+
+.form-heading h2 {
+    margin: 0 0 6px;
+    color: #252b38;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.form-heading p {
+    margin: 0;
+    color: #8b91a0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Fotografia de perfil */
+
+.profile-upload {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 22px;
+    margin-bottom: 30px;
+    background: #fafbfe;
+    border: 1px solid #eceef4;
+    border-radius: 13px;
+}
+
+.profile-preview {
+    width: 105px;
+    height: 105px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    background: #eceff5;
+    box-shadow: 0 0 0 1px #dfe3eb;
+}
+
+.profile-preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-upload-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+    min-width: 0;
+}
+
+.profile-upload-info label {
+    color: #303747;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.profile-upload-info p {
+    margin: 0;
+    color: #8a90a0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.profile-upload-info input[type="file"] {
+    width: 100%;
+    max-width: 350px;
+    color: #626b7b;
+    font-size: 12px;
+}
+
+/* Campos do formulário */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.form-group label {
+    color: #343b4a;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.form-group input {
+    display: block;
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 0 15px;
+    border: 1px solid #dfe3eb;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #303747;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder {
+    color: #b0b5c0;
+}
+
+.form-group input:hover {
+    border-color: #c5cad5;
+}
+
+.form-group input:focus {
+    border-color: #e87932;
+    box-shadow: 0 0 0 4px rgba(232, 121, 50, 0.10);
+}
+
+/* Separador */
+
+.form-divider {
+    height: 1px;
+    margin: 32px 0 24px;
+    background: #eceef3;
+}
+
+/* Botões */
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-cancelar,
+.btn-guardar,
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    box-sizing: border-box;
+    padding: 0 22px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancelar {
+    border: 1px solid #dfe3eb;
+    background: #ffffff;
+    color: #5c6473;
+}
+
+.btn-cancelar:hover {
+    background: #f5f6f9;
+    border-color: #c9ced8;
+}
+
+.btn-guardar {
+    border: 1px solid #e8752e;
+    background: #e8752e;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(232, 117, 46, 0.15);
+}
+
+.btn-guardar:hover {
+    background: #cf6120;
+    border-color: #cf6120;
+    transform: translateY(-1px);
+}
+
+.btn-voltar {
+    border: 1px solid #e0e4ec;
+    background: #ffffff;
+    color: #50596a;
+}
+
+.btn-voltar:hover {
+    background: #f5f6f9;
+}
+
+/* Mensagens */
+.form-message {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 16px;
+    margin: 10px 0;
+    box-sizing: border-box;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+    writing-mode: horizontal-tb;
+    letter-spacing: normal;
+}
+
+.form-message.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+}
+
+.form-message.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+.form-message.error {
+    border: 1px solid #f0cccc;
+    background: #fff1f1;
+    color: #b33333;
+}
+
+/* Erros de validação do Django */
+
+.form-group ul.errorlist {
+    margin: 0;
+    padding-left: 18px;
+    color: #c53b3b;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Responsividade */
+
+@media (max-width: 900px) {
+    .form-panel {
+        padding: 25px;
+    }
+
+    .page-head h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-head {
+        align-items: flex-start;
+    }
+
+    .page-head h1 {
+        font-size: 22px;
+    }
+
+    .form-panel {
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .profile-upload {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px;
+    }
+
+    .profile-preview {
+        width: 90px;
+        height: 90px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .btn-cancelar,
+    .btn-guardar {
+        width: 100%;
+    }
+}
+
+
+/* Mensagens de sucesso e erro */
+.form-panel .alerta-mensagem {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    margin-top: 20px;
+
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+    writing-mode: horizontal-tb;
+    letter-spacing: normal;
+}
+
+.form-panel .alerta-mensagem.error {
+    color: #721c24;
+    background-color: #fff1f1;
+    border-color: #f0cccc;
+}

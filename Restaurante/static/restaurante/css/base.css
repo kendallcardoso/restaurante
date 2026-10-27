@@ -465,3 +465,90 @@ ul {
     border: 0;
     border-radius: 10px;
 }
+.sobre-container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+.sobre-secao { padding: 3.5rem 0; }
+.sobre-titulo-central { text-align: center; margin-bottom: 2rem; }
+
+.sobre-duas-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.sobre-imagem img { width: 100%; border-radius: 12px; display: block; }
+
+.sobre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.sobre-valores { background: #f7f3ee; }
+.sobre-card {
+  background: #fff;
+  padding: 1.75rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.sobre-membro { text-align: center; }
+.sobre-membro img {
+  width: 160px; height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: .75rem;
+}
+.sobre-membro span { color: #777; }
+
+.sobre-cta { background: #2b2b2b; color: #fff; text-align: center; }
+.sobre-botao {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .75rem 1.75rem;
+  background: #e0a030;
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .sobre-duas-colunas { grid-template-columns: 1fr; }
+}
+.galeria-secao { padding: 3.5rem 0; }
+.galeria-container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+.galeria-titulo { text-align: center; margin-bottom: .5rem; }
+.galeria-subtitulo { text-align: center; color: #777; margin-bottom: 2rem; }
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.galeria-item { position: relative; margin: 0; overflow: hidden; border-radius: 12px; }
+.galeria-item img {
+  width: 100%; height: 260px;
+  object-fit: cover; display: block;
+  transition: transform .4s;
+}
+.galeria-item:hover img { transform: scale(1.05); }
+.galeria-grande { grid-column: span 2; }
+.galeria-grande img { height: 260px; }
+
+.galeria-item figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: .75rem 1rem;
+  color: #fff; font-size: .95rem;
+  background: linear-gradient(transparent, rgba(0,0,0,.7));
+}
+
+.galeria-frase {
+  text-align: center;
+  font-size: 1.3rem;
+  font-style: italic;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .galeria-grid { grid-template-columns: 1fr; }
+  .galeria-grande { grid-column: span 1; }
+}

@@ -1,0 +1,269 @@
+/* CONTAINER PRINCIPAL */
+
+.produto-container {
+    width: 100%;
+    max-width: 750px;
+
+    margin: 30px auto;
+    padding: 35px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+
+    border: 1px solid #e5e7eb;
+}
+
+/* CABEÇALHO */
+
+.produto-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.produto-header h1 {
+    font-size: 25px;
+    font-weight: 700;
+
+    color: #1f2937;
+
+    margin-bottom: 8px;
+}
+
+.produto-header p {
+    font-size: 14px;
+    color: #6b7280;
+
+    line-height: 1.6;
+}
+
+/* FORMULÁRIO */
+
+#form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+/* GRUPO DE CAMPOS */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #374151;
+}
+
+/* INPUTS E SELECTS */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    font-size: 14px;
+    color: #374151;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+/* FOCO */
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #f97316;
+
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+/* SELECT */
+
+.form-group select {
+    cursor: pointer;
+}
+
+/* CAMPO DE IMAGEM */
+
+.form-group input[type="file"] {
+    padding: 10px;
+
+    background: #f9fafb;
+
+    border: 2px dashed #d1d5db;
+
+    cursor: pointer;
+}
+
+.form-group input[type="file"]:hover {
+    border-color: #f97316;
+    background: #fff7ed;
+}
+
+/* BOTÃO DE ESCOLHER FICHEIRO */
+
+.form-group input[type="file"]::file-selector-button {
+    background: #f97316;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 10px 15px;
+
+    margin-right: 15px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+    background: #ea580c;
+}
+
+/* TEXTO AUXILIAR */
+
+.form-group small {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* BOTÃO SUBMETER */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 10px;
+    padding-top: 20px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.form-actions input[type="submit"] {
+    background: #f97316;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 14px 28px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.form-actions input[type="submit"]:hover {
+    background: #ea580c;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(249, 115, 22, 0.25);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .produto-container {
+        margin: 15px auto;
+        padding: 25px 20px;
+    }
+
+    .produto-header h1 {
+        font-size: 21px;
+    }
+
+    .form-actions input[type="submit"] {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .produto-container {
+        padding: 20px 15px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 13px;
+    }
+
+}
+#descricao{
+    resize: none;
+    height: 100px;
+    padding: 5px;
+}.form-message {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 16px;
+    margin: 10px 0;
+    box-sizing: border-box;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+    writing-mode: horizontal-tb;
+    letter-spacing: normal;
+}
+
+.form-message.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+}
+
+.form-message.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+.form-message.error {
+    border: 1px solid #f0cccc;
+    background: #fff1f1;
+    color: #b33333;
+}
+
+/* Erros de validação do Django */
+
+.form-group ul.errorlist {
+    margin: 0;
+    padding-left: 18px;
+    color: #c53b3b;
+    font-size: 12px;
+    line-height: 1.6;
+}

@@ -319,3 +319,180 @@ td.empty {
         grid-template-columns: 1fr;
     }
 }
+/* =====================================
+   UTILIZADOR NA BARRA SUPERIOR
+===================================== */
+
+.topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* =====================================
+   AVATAR
+===================================== */
+
+.avatar {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background-color: #f97316;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+
+    border: 2px solid #f3f4f6;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* FOTO DO UTILIZADOR */
+
+.foto-perfil {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+/* PRIMEIRA LETRA DO NOME */
+
+.avatar-letra {
+    color: white;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+/* =====================================
+   INFORMAÇÕES DO UTILIZADOR
+===================================== */
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 3px;
+}
+
+.topbar-name {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #1f2937;
+}
+
+.user-role {
+    font-size: 11px;
+    font-weight: 500;
+
+    color: #6b7280;
+}
+
+/* =====================================
+   EFEITO NA FOTO
+===================================== */
+
+.avatar {
+    transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.08);
+}
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
+@media (max-width: 600px) {
+
+    .avatar {
+        width: 38px;
+        height: 38px;
+    }
+
+    .topbar-name {
+        font-size: 12px;
+    }
+
+    .user-role {
+        font-size: 10px;
+    }
+
+    .topbar-user {
+        gap: 8px;
+    }
+}/* FOTO DE PERFIL */
+
+.topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+
+    border-radius: 50%;
+
+    background-color: #f97316;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    border: 2px solid #e5e7eb;
+}
+
+.foto-perfil {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+.avatar-letra {
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.topbar-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.user-role {
+    font-size: 12px;
+    color: #6b7280;
+}

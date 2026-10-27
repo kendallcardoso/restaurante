@@ -3,3 +3,88 @@
 {% block title %}Sobre Nós | Restaurante{% endblock %}
 
 {% block hero_class %}hero-pequeno{% endblock %}
+{% block hero %}
+    <h1>Conheça a nossa História</h1>
+    <p>Venha viver uma experiência única...</p>
+    <a href="https://wa.me/244932021316?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva." target="_blank" class="btn">Reservar mesa</a>
+{% endblock %}
+
+{% block content %}
+
+<!-- Nossa história -->
+<section class="sobre-secao sobre-historia">
+  <div class="sobre-container sobre-duas-colunas">
+    <div class="sobre-texto">
+      <h2>Quem somos</h2>
+      <p>
+        O Prato Cheio nasceu da vontade de trazer à mesa o sabor autêntico da
+        cozinha angolana, feito com ingredientes frescos e muito carinho.
+        Começámos com uma pequena cozinha e uma grande ideia: que cada refeição
+        seja um momento para partilhar.
+      </p>
+      <p>
+        Hoje, continuamos a receber cada cliente como se fosse da família,
+        mantendo as receitas tradicionais e dando-lhes um toque de modernidade.
+      </p>
+    </div>
+    <div class="sobre-imagem">
+      <img src="{% static 'restaurante/img/galeria/restaurante.webp' %}" alt="Interior do restaurante">
+    </div>
+  </div>
+</section>
+
+<!-- Valores -->
+<section class="sobre-secao sobre-valores">
+  <div class="sobre-container">
+    <h2 class="sobre-titulo-central">O que nos move</h2>
+    <div class="sobre-grid">
+      <article class="sobre-card">
+        <h3>Qualidade</h3>
+        <p>Ingredientes selecionados e preparados diariamente, sem atalhos.</p>
+      </article>
+      <article class="sobre-card">
+        <h3>Tradição</h3>
+        <p>Receitas passadas de geração em geração, com respeito pela origem.</p>
+      </article>
+      <article class="sobre-card">
+        <h3>Hospitalidade</h3>
+        <p>Um atendimento caloroso, para que se sinta em casa desde a entrada.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Equipa -->
+<section class="sobre-secao sobre-equipa">
+  <div class="sobre-container">
+    <h2 class="sobre-titulo-central">A nossa equipa</h2>
+    <div class="sobre-grid">
+      <article class="sobre-membro">
+        <img src="{% static 'restaurante/img/servicos.jpg' %}" alt="Chef de cozinha">
+        <h3>Nome do Chef</h3>
+        <span>Chef de Cozinha</span>
+      </article>
+      <article class="sobre-membro">
+        <img src="{% static 'restaurante/img/gerente.webp' %}" alt="Gerente">
+        <h3>Nome do Gerente</h3>
+        <span>Gerente</span>
+      </article>
+      <article class="sobre-membro">
+        <img src="{% static 'restaurante/img/equipa.webp' %}" alt="Equipa de atendimento">
+        <h3>Equipa de Sala</h3>
+        <span>Atendimento</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Chamada para ação -->
+<section class="sobre-secao sobre-cta">
+  <div class="sobre-container">
+    <h2>Venha provar o que temos para si</h2>
+    <p>Reserve a sua mesa ou veja o nosso menu.</p>
+    <a href="{% url 'home' %}" class="sobre-botao">Ver Destaques</a>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+/* ===== Página de entradas ===== */
+
+:root {
+    --cor-card: #ffffff;
+    --cor-texto: #2b2b2b;
+    --cor-suave: #6b6b6b;
+    --cor-destaque: #c0392b;
+    --raio: 12px;
+    --sombra: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.secao {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    color: var(--cor-texto);
+}
+
+/* Grelha de cartões */
+.destaques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+/* Cartão de cada prato */
+.card-prato {
+    background: var(--cor-card);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-prato:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card-prato .img-prato {
+    width: calc(100% + 2.5rem);
+    height: 180px;
+    object-fit: cover;
+    margin: -1.25rem -1.25rem 0.75rem;
+    display: block;
+}
+
+.card-prato .nome {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.card-prato .categoria,
+.card-prato .subcategoria {
+    font-size: 0.85rem;
+    color: var(--cor-suave);
+    margin: 0;
+}
+
+.card-prato .categoria {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.card-prato .subcategoria {
+    text-transform: capitalize;
+}
+
+.card-prato .preco {
+    margin: 0.6rem 0 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cor-destaque);
+}
+
+/* Sem pratos */
+.sem-pratos {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--cor-suave);
+    font-size: 1.05rem;
+}
+
+@media (max-width: 480px) {
+    .destaques-grid {
+        grid-template-columns: 1fr;
+    }
+}

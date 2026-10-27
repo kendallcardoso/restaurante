@@ -1,23 +1,34 @@
 {% extends 'restaurante/base.html' %}
 {% load static %}
+
 {% block title %}Entradas | Restaurante{% endblock %}
 
 {% block hero_class %}hero-pequeno{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% block hero %}
-        <h1>Entradas</h1>
-        <p>Abaixo a lista com os pratos de entradas,aproveite!</p>
-    {% endblock %}
-    
-</body>
-</html>
-
-
+{% block hero %}
+    <h1>Entradas</h1>
+    <p>Abaixo a lista com os pratos de entradas, aproveite!</p>
+    <a href="https://wa.me/244932021316?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva." target="_blank" class="btn">Reservar mesa</a>
+{% endblock %}
+{% block extracss %} <link rel="stylesheet" href="{% static 'restaurante/css/entrada.css' %}"> {% endblock %}
+{% block content %}
+<section class="secao">
+    {% if entradas %}
+        <div class="destaques-grid">
+            {% for i in entradas %}
+                <article class="card-prato">
+                    {% if i.img %}
+                        <img class="img-prato" src="{{ i.img.url }}" alt="{{ i.nome }}">
+                    {% endif %}
+                    <h3 class="nome">{{ i.nome }}</h3>
+                    <p class="categoria">{{ i.categoria }}</p>
+                    <p class="subcategoria">{{ i.subcategoria }}</p>
+                    <p class="preco">{{ i.preco }} Kz</p>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="sem-pratos">Ainda não há entradas disponíveis.</p>
+    {% endif %}
+</section>
+{% endblock %}

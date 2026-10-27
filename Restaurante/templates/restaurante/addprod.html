@@ -1,0 +1,114 @@
+{% extends 'restaurante/base_painel.html' %}
+{% load static %}
+
+{% block extra_css %}
+ <link rel="stylesheet" href="{% static 'restaurante/css/produtos.css' %}">
+ {% endblock %}
+{% block title %}Adicionar Produto | Prato Cheio{% endblock %}
+
+{% block conteudo %}
+
+<div class="produto-container">
+
+    <div class="produto-header">
+        <h1>Adicionar Produto</h1>
+        <p>Preencha os campos abaixo para cadastrar um novo produto.</p>
+    </div>
+
+    <form action="{% url 'addprod' %}" method="post" id="form" enctype="multipart/form-data">
+ 
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="nome">Nome do Produto</label>
+            <input
+                type="text"
+                name="nome"
+                id="nome"
+                placeholder="Digite o nome do produto"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="cat">Categoria</label>
+
+            <select name="categoria" id="cat" required>
+                <option value="" selected disabled>
+                    Selecione uma opção
+                </option>
+
+                <option value="comida">Comida</option>
+                <option value="bebida">Bebida</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="subcat">Subcategoria</label>
+
+            <select name="subcategoria" id="subcat" required>
+                <option value="" selected disabled>
+                    --Selecione uma categoria--
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="nome">Descrição</label>
+            <textarea name="descricao" id="descricao" maxlength="2000",rows="15" required placeholder="Descrição..">
+
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="preco">Preço (Kz)</label>
+
+            <input
+                type="number"
+                name="preco"
+                id="preco"
+                min="0.01"
+                step="0.01"
+                placeholder="Digite o preço"
+                required
+            >
+        </div>
+
+        <!-- IMAGEM DO PRODUTO -->
+        <div class="form-group">
+
+            <label for="imagem">Imagem do Produto</label>
+
+            <input
+                type="file"
+                name="imagem"
+                id="imagem"
+                accept="image/*"
+                required
+            >
+
+            <small>Selecione uma imagem do produto.</small>
+
+        </div>
+
+        <div class="form-actions">
+            <input type="submit" value="Inserir Produto">
+        </div>
+
+    </form>
+      {% if erro %}
+        <div class="alerta-mensagem error">
+            {{ erro }}
+        </div>
+    {% endif %}
+    {% if messages %}
+       
+            <div class="alerta-mensagem {{ message.tags }}">
+                {{ messages }}
+            </div>
+        
+    {% endif %}
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'restaurante/js/produtos.js' %}" ></script>
+{% endblock %}

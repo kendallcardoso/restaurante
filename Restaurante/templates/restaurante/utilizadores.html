@@ -1,0 +1,75 @@
+
+{% extends 'restaurante/base_painel.html' %}
+
+{% block title %}Utilizadores | Prato Cheio{% endblock %}
+
+{% block conteudo %}
+
+<div class="page-head">
+    <div>
+        <h1>Utilizadores</h1>
+        <p class="page-sub">Gestão dos utilizadores do sistema</p>
+    </div>
+     <a href="{% url 'criaruser' %}" class="btn-primary">+ Inserir Usuario</a>
+</div>
+
+<section class="stats" aria-label="Resumo dos utilizadores">
+    <article class="stat">
+        <span class="stat-label">Total de utilizadores</span>
+        <strong class="stat-value">
+            {{ total|default:"0" }}
+        </strong>
+    </article>
+</section>
+
+<section class="panel">
+    <h2>Lista de utilizadores</h2>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Nome de utilizador</th>
+                    <th>Email</th>
+                    <th>Estado</th>
+                  
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for u in u %}
+                <tr>
+                    <td>
+                        {{ u.first_name|default:"—" }}
+                        {{ u.last_name }}
+                    </td>
+
+                    <td>{{ u.username }}</td>
+
+                    <td>
+                        {{ u.email|default:"—" }}
+                    </td>
+
+                    <td>
+                        {% if u.is_active %}
+                            <span>Ativo</span>
+                        {% else %}
+                            <span>Inativo</span>
+                        {% endif %}
+                    </td>
+                    
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="empty">
+                        Ainda não há utilizadores registados.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+{% endblock %}
