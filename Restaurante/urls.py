@@ -24,6 +24,7 @@ urlpatterns =[
     path('admin/menus/adicionar-produto/', views.addprod, name='addprod'),
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
     path('admin/menus/produto/<int:id>/', views.editarprod, name='editarprod'),
+    path("eliminar/<int:id>/", views.eliminarproduto,name="delete")
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

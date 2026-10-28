@@ -45,7 +45,7 @@
                         <a href="{% url 'editarprod'  p.id  %}" class="btn-primary">Editar</a>
 
                         <form method="post"
-                              action="#"
+                              action="{% url 'delete' p.id %}"
                               style="display:inline;">
                             {% csrf_token %}
                             <button type="submit" class="btn-logout">

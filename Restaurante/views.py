@@ -117,3 +117,10 @@ def editarprod(request, id):
 
     p.save()
     return redirect("menus")
+@login_required
+def eliminarproduto(request, id):
+    p = get_object_or_404(Produto , id=id)
+    p.delete()
+    return redirect("menu")
+
+    
