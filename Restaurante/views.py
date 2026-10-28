@@ -121,6 +121,6 @@ def editarprod(request, id):
 def eliminarproduto(request, id):
     p = get_object_or_404(Produto , id=id)
     p.delete()
-    return redirect("menu")
+    return redirect("menus")
 
     
