@@ -21,8 +21,9 @@ def pratosprincipais(request):
     p = Produto.objects.filter(subcategoria="pratos principais")
     return render(request,"restaurante/pratos_principais.html",{"p":p})
 def bebidas(request):
-    p = Produto.objects.filter(categoria="bebida")
-    return render(request,"restaurante/bebidas.html",{"p":p})
+    sub = request.GET.get("subcategoria")
+    p = Produto.objects.filter(subcategoria=sub)
+    return render(request,"restaurante/bebidas.html",{"p":p,"subcat":sub})
 def galeria(request):
     return render(request,"restaurante/galeria.html")
 def eventos(request):
