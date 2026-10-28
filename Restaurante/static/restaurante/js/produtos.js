@@ -4,7 +4,7 @@ const nome = document.getElementById("nome")
 const categoria = document.getElementById("cat")
 const subcategoria = document.getElementById("subcat")
 const subcat_comidas =["entradas","fastfood","sobremesas","pratos principais"]
-const subcat_bebidas =["agua","refrigerante","cerveja","sumos naturais","whisky","vinho"]
+const subcat_bebidas =["agua","refrigerante","cerveja","sumos naturais","whisky","vinho","coktail","sumo"]
 
 categoria.addEventListener("change", (e)=>{
     const valor = e.target.value

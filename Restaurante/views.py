@@ -32,6 +32,9 @@ def sobrenos(request):
 def fastfood(request):
     p = Produto.objects.filter(subcategoria="fastfood")
     return render(request,"restaurante/fastfood.html",{"p":p})
+def cocktailsumos(request):
+    p = Produto.objects.filter(subcategoria="coktail")
+    return render(request,"restaurante/cocktailsumos.html",{"p":p})
 
 @login_required
 def adminpage(request):

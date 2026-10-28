@@ -39,7 +39,17 @@
                             <li><a href="{% url 'entradas' %}">Entradas</a></li>
                             <li><a href="{% url 'pratosPrincipais' %}">Pratos Principais</a></li>
                             <li><a href="{% url 'sobremesas' %}">Sobremesas</a></li>
-                            <li><a href="{% url 'bebidas' %}">Bebidas</a></li>
+                            <li class="has-submenu">
+                        <a href="#">Bebidas <span class="seta">▾</span></a>
+                        <ul class="submenu">
+                            <li><a href="{% url 'bebidas' %}?tipo=agua">Água</a></li>
+                            <li><a href="{% url 'bebidas' %}?tipo=cerveja">Cerveja</a></li>
+                            <li><a href="{% url 'bebidas' %}?tipo=vinhos">Vinhos</a></li>
+                            <li><a href="{% url 'bebidas' %}?tipo=whisky">Whisky</a></li>
+                            <li><a href="{% url 'bebidas' %}?tipo=sumos">Sumos</a></li>
+                            <li><a href="{% url 'bebidas' %}?tipo=cocktails">Cocktails</a></li>
+                        </ul>
+                    </li>
                             <li><a href="{% url 'fastfood' %}">Fastfood</a></li>
                         </ul>
                     </li>
@@ -110,16 +120,20 @@
         <p class="footer-copy">&copy; 2026 Nome do Restaurante. Todos os direitos reservados.</p>
     </footer>
 <script>
-    var itensSubmenu = document.querySelectorAll('.has-submenu');
-
-    itensSubmenu.forEach(function (item) {
-        var link = item.querySelector(':scope > a');
-
+    document.querySelectorAll('.has-submenu > a').forEach(function (link) {
         link.addEventListener('click', function (e) {
             e.preventDefault();
+            var item = link.parentElement;
             var estavaAberto = item.classList.contains('aberto');
 
-            itensSubmenu.forEach(function (i) { i.classList.remove('aberto'); });
+            // fecha só os irmãos (e o que estiver aberto dentro deles), nunca os pais
+            Array.from(item.parentElement.children).forEach(function (irmao) {
+                irmao.classList.remove('aberto');
+                irmao.querySelectorAll('.aberto').forEach(function (f) {
+                    f.classList.remove('aberto');
+                });
+            });
+
             if (!estavaAberto) {
                 item.classList.add('aberto');
             }
@@ -128,7 +142,9 @@
 
     document.addEventListener('click', function (e) {
         if (!e.target.closest('.has-submenu')) {
-            itensSubmenu.forEach(function (i) { i.classList.remove('aberto'); });
+            document.querySelectorAll('.has-submenu.aberto').forEach(function (i) {
+                i.classList.remove('aberto');
+            });
         }
     });
 </script>
